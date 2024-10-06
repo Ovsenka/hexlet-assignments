@@ -10,9 +10,7 @@ public final class App {
 
     public static Javalin getApp() {
 
-        var app = Javalin.create(config -> {
-            config.bundledPlugins.enableDevLogging();
-        });
+        var app = Javalin.create(config -> config.bundledPlugins.enableDevLogging());
 
         // BEGIN
         app.get("/users", ctx -> {
@@ -22,7 +20,7 @@ public final class App {
             var perPage = ctx
                     .queryParamAsClass("per", Integer.class)
                     .getOrDefault(5);
-            return ctx.json(USERS.subList(page*5, page*5 + perPage));
+            ctx.json(USERS.subList(page*5, page*5 + perPage));
         });
         // END
 
