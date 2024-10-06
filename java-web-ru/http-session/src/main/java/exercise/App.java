@@ -20,7 +20,7 @@ public final class App {
             var perPage = ctx
                     .queryParamAsClass("per", Integer.class)
                     .getOrDefault(5);
-            ctx.json(USERS.subList(page*perPage, page*perPage + perPage));
+            ctx.json(USERS.subList(page * perPage, page * perPage + perPage));
         });
         // END
 
