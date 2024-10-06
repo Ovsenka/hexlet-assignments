@@ -12,7 +12,8 @@ public final class App {
         });
         // Описываем, что загрузится по адресу /
         app.get("/phones", ctx -> ctx.json(Data.getPhones()));
-        app.get("/domains", ctx -> ctx.json(Data.getDomains();));
+        app.get("/domains", ctx -> ctx.json(Data.getDomains()));
+        return app;
         // END
     }
 
