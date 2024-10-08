@@ -1,14 +1,21 @@
+@import gg.jte.Content
+@param Content content
 
-@template.layout.page(
-    content = @`
-        <h1>
-        <a href="/">/</a>
-        </h1>
-        <h1><
-        a href="/users">/users</a>
-        </h1>
-    `,
-    footer = @`
-        <p>Thanks for visiting, come again soon!</p>
-    `
-)
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hexlet Javalin Example</title>
+</head>
+
+<body>
+<p class="navbar-header">
+    <h1><a href="/">Home</a></h1>
+    <h1><a href="/users">Users</a></h1>
+</p>
+${content}
+</body>
+
+</html>
