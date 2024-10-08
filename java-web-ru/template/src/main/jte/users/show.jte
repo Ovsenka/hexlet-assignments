@@ -1,4 +1,4 @@
-@import org.example.hexlet.dto.users.UserPage
+@import exercise.dto.users.UserPage
 @param UserPage page
 
 <html>
@@ -6,9 +6,9 @@
         <title>Хекслет</title>
     </head>
     <body>
-        <p>${user.getId()}</p>
-        <p>${user.getFirstName()}</p>
-        <p>${user.getLastName()}</p>
-        <p>${user.getEmail()}</p>
+        <p>${page.getId()}</p>
+        <p>${page.getFirstname()}</p>
+        <p>${page.getLastname()}</p>
+        <p>${page.getEmail()}</p>
     </body>
 </html>
