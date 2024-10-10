@@ -29,7 +29,7 @@ public final class App {
             // Фильтруем, только если была отправлена форма
             if (term != null) {
                 users = USERS.stream()
-                        .filter(u -> StringUtils.containsIgnoreCase(u.getFirstName(), term))
+                        .filter(u -> StringUtils.startsWithIgnoreCase(u.getFirstName(), term))
                         .toList();
             } else {
                 users = null;
