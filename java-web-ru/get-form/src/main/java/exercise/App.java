@@ -2,7 +2,6 @@ package exercise;
 
 import io.javalin.Javalin;
 
-import java.util.ArrayList;
 import java.util.List;
 import exercise.model.User;
 import exercise.dto.users.UsersPage;
