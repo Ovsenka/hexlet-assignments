@@ -10,9 +10,7 @@
     </form>
     @if (page.getUsers() != null && !page.getUsers().isEmpty())
         @for(var user : page.getUsers())
-            <div>
-                <p>${user.getFirstName()} ${user.getLastName()}</p>
-            </div>
+            <p>${user.getFirstName()} ${user.getLastName()}</p>
         @endfor
     @endif
     `

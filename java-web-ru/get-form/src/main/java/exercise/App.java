@@ -32,7 +32,7 @@ public final class App {
                         .filter(u -> StringUtils.startsWithIgnoreCase(u.getFirstName(), term))
                         .toList();
             } else {
-                users = null;
+                users = List.copyOf(USERS);
             }
             var page = new UsersPage(users, term);
             ctx.render("users/index.jte", model("page", page));
