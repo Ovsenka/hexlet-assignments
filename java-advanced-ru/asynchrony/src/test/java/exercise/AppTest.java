@@ -47,12 +47,12 @@ class AppTest {
 
     // BEGIN
     @Test
-    public void directorySize() throws ExecutionException, InterruptedException {
-        CompletableFuture<Long> result = App.getDirectorySize("src/main/resources/");
-        long actual = result.get();
+    void testGetSize() throws Exception {
+        CompletableFuture<Long> result = App.getDirectorySize(
+                "src/test/resources/dir/"
+        );
 
-        long expected = 23;
-        assertEquals(expected, actual);
+        assertThat(result.get()).isEqualTo(26);
     }
     // END
 }
