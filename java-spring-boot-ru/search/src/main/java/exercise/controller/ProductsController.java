@@ -35,6 +35,9 @@ public class ProductsController {
     @Autowired
     private ProductMapper productMapper;
 
+    @Autowired
+    private ProductSpecification specification;
+
     // BEGIN
     @GetMapping("")
     @ResponseStatus(HttpStatus.OK)
