@@ -1,7 +1,7 @@
 package exercise;
 
 // BEGIN
-public class MinThread extends Thread{
+public class MinThread extends Thread {
     private Integer result;
     private int[] numbers;
     private static final Logger LOGGER = Logger.getLogger("AppLogger");
