@@ -1,5 +1,7 @@
 package exercise;
 
+import java.util.logging.Logger;
+
 // BEGIN
 public class MaxThread extends Thread {
     private Integer result;

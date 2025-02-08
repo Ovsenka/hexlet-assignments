@@ -17,20 +17,14 @@ class App {
         Map<String, Integer> result = new HashMap<>();
 
         MinThread minThread = new MinThread(numbers);
-        LOGGER.info("Thread " + minThread.getName() + " started");
         MaxThread maxThread = new MaxThread(numbers);
-        LOGGER.info("Thread " + maxThread.getName() + " started");
 
         maxThread.start();
-        LOGGER.info("Thread " + maxThread.getName() + " started");
         minThread.start();
-        LOGGER.info("Thread " + minThread.getName() + " started");
 
         try {
             minThread.join();
             maxThread.join();
-            LOGGER.info("Thread " + minThread.getName() + " finished");
-            LOGGER.info("Thread " + minThread.getName() + " finished");
         } catch (InterruptedException e) {
             LOGGER.info("Thread interrupted: " + e.getMessage());
         }
