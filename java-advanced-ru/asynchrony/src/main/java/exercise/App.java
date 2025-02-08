@@ -59,5 +59,22 @@ class App {
         System.out.println(getDirectorySize("src/main/resources/").get());
         // END
     }
+
+    public static CompletableFuture<Long> getDirectorySize(String dirAddress) {
+        return CompletableFuture.supplyAsync(() -> {
+            try {
+                Path path = Paths.get(dirAddress).toAbsolutePath().normalize();
+                long resultSize = 0;
+                var dirStream = Files.newDirectoryStream(path);
+                for (Path p : dirStream) {
+                    long tempSize = Files.size(p);
+                    resultSize += tempSize;
+                }
+                return resultSize;
+            } catch (Exception ex) {
+                throw new RuntimeException("Ошибка при чтении директории " + ex.getMessage());
+            }
+        });
+    }
 }
 
