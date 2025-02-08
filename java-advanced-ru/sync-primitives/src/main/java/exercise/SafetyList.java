@@ -1,5 +1,7 @@
 package exercise;
 
+import java.util.Arrays;
+
 class SafetyList {
     // BEGIN
     private int[] list = new int[0];
