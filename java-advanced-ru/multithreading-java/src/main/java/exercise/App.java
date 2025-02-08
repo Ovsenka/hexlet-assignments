@@ -7,30 +7,25 @@ class App {
     private static final Logger LOGGER = Logger.getLogger("AppLogger");
 
     // BEGIN
-    public static void main(String[] args) {
-        int[] numbers = {10, -4, 67, 100, -100, 8};
-        Map<String, Integer> result = getMinMax(numbers);
-        System.out.println(result);
-    }
+    public static Map<String, Integer> getMinMax(int[] arr) {
+        MinThread min = new MinThread(arr);
+        MaxThread max = new MaxThread(arr);
 
-    public static Map<String, Integer> getMinMax(int[] numbers) {
-        Map<String, Integer> result = new HashMap<>();
-
-        MinThread minThread = new MinThread(numbers);
-        MaxThread maxThread = new MaxThread(numbers);
-
-        maxThread.start();
-        minThread.start();
+        min.start();
+        max.start();
 
         try {
-            minThread.join();
-            maxThread.join();
+            min.join();
+            max.join();
         } catch (InterruptedException e) {
-            LOGGER.info("Thread interrupted: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
+        int minVal = min.min;
+        int maxVal = max.max;
 
-        result.put("min", minThread.getResult());
-        result.put("max", maxThread.getResult());
+        Map<String, Integer> result = new HashMap<>();
+        result.put("min", minVal);
+        result.put("max", maxVal);
 
         return result;
     }
