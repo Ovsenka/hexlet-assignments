@@ -10,5 +10,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 // BEGIN
-
+@Component
+@ConfigurationProperties(prefix = "rsa")
+@Getter
+@Setter
+public class RsaKeyProperties {
+    private RSAPrivateKey privateKey;
+    private RSAPublicKey publicKey;
+}
 // END

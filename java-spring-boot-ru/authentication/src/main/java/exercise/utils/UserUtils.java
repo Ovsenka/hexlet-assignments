@@ -12,7 +12,15 @@ public class UserUtils {
     private UserRepository userRepository;
 
     // BEGIN
-    
+    public User getCurrentUser() {
+        var authentification = SecurityContextHolder.getContext().getAuthentication();
+        if (authentification == null || !authentification.isAuthenticated()) {
+            return null;
+        }
+        var name = authentification.getName();
+        return userRepository.findByEmail(name)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
     // END
 
     public User getTestUser() {
