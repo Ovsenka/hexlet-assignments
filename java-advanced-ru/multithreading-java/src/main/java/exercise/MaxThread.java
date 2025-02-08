@@ -1,7 +1,5 @@
 package exercise;
 
-import java.util.logging.Logger;
-
 // BEGIN
 public class MaxThread extends Thread {
 
@@ -14,9 +12,7 @@ public class MaxThread extends Thread {
 
     @Override
     public void run() {
-        LOGGER.info("Thread " + Thread.currentThread().getName() + " started");
         max = Arrays.stream(arr).max().getAsInt();
-        LOGGER.info("Thread " + Thread.currentThread().getName() + " finished");
     }
 }
 // END
